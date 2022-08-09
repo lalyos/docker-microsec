@@ -1,0 +1,12 @@
+#version: '3.5'
+  services:
+    postgres:
+        environment:
+            - POSTGRES_PASSWORD=s3cr3t
+        volumes:
+            - vipdb:/var/lib/postgresql/data
+            - ./sql:/docker-entrypoint-initdb.d/
+        image: postgres
+
+  volumes:
+    vipdb:
