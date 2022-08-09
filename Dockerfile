@@ -1,7 +1,13 @@
-FROM ubuntu
+FROM ubuntu:22.04
 
 RUN apt-get update -qq
 RUN apt-get install -y curl nginx
 
-RUN echo 'orokelet ...' > /var/www/html/index.html
-CMD [ "nginx", "-g", "daemon off;" ]
+COPY start.sh /
+RUN chmod +x /start.sh
+ENV COLOR=gray
+ENV TITLE="use COLOR/TITLE env vars"
+
+EXPOSE 80
+
+CMD [ "/start.sh" ]
