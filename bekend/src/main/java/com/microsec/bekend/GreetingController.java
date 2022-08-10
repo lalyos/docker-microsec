@@ -26,6 +26,11 @@ public class GreetingController {
 		return new Greeting(counter.incrementAndGet(), ret);
 	}
 
+  @GetMapping("/ready")
+	public String ready() {
+		return "ok";
+	}
+
   @GetMapping("/vip")
 	public List<Customer> boss() {
 		List<Customer> result = new ArrayList<Customer>();
