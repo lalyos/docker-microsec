@@ -1,4 +1,4 @@
-FROM eclipse-temurin:8-jdk
+FROM eclipse-temurin:11-jdk
 
 COPY . /app
 WORKDIR /app
