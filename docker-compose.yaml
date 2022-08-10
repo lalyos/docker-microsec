@@ -3,10 +3,22 @@
     postgres:
         environment:
             - POSTGRES_PASSWORD=s3cr3t
+        ports:
+        - 5432:5432
         volumes:
             - vipdb:/var/lib/postgresql/data
             - ./sql:/docker-entrypoint-initdb.d/
         image: postgres
+    adminer:
+      image: adminer
+      ports:
+      - 8080
+
+    java:
+      build: ./bekend
+      ports:
+        - 8080
+
     backend:
       build: .
       ports:
